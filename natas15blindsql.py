@@ -79,7 +79,4 @@ for position in range(1, 33):
     print(result)
 print(password)
 
-# print(a_dichotomic_search_for_a_lost_password_character(host, 1, ord('a'), ord('z'))) # expects w
-# print(a_dichotomic_search_for_a_lost_password_character(host, 2, ord('a'), ord('z'))) # expects a
-# print(a_dichotomic_search_for_a_lost_password_character(host, 3, ord('a'), ord('z'))) # expects a
-
+# hope this wasnt a bit of an overdo. fun is the name of the game
